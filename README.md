@@ -6,7 +6,7 @@ This project is based on the work of [krejcmat](https://github.com/krejcmat/hado
 ###### Version of products
 | system          | version    |
 | ----------------|:----------:|
-| HBase           | 1.2.4      |
+| HBase           | 1.2.5      |
 
 Used versions of Hadoop and HBase are officially compatible - fully tested.
 As handler of HBase native Zookeeper is used. For large clusters, it is highly recommended to use external Zookeeper management (not included).
@@ -24,13 +24,16 @@ $ cd hadbase
 $ ./build-image.sh hadbase-base
 ```
 
+####### Windows
+Run build-image.bat
+
 ###### Check images
 ```
 $ docker images
 
-iambenzo/hadbase-master               latest              2f86a3daef76        48 minutes ago           1.091 GB
-iambenzo/hadbase-slave                latest              ed119b77ecdf        53 minutes ago           1.091 GB
-iambenzo/hadbase-base                 latest              00fd6c19004f        58 minutes ago           1.091 GB
+iambenzo/hadbase-master               latest              2f86a3daef76        48 minutes ago           1.04 GB
+iambenzo/hadbase-slave                latest              ed119b77ecdf        53 minutes ago           1.04 GB
+iambenzo/hadbase-base                 latest              00fd6c19004f        58 minutes ago           1.04 GB
 
 ```
 
@@ -38,6 +41,9 @@ iambenzo/hadbase-base                 latest              00fd6c19004f        58
 ```
 $ ./start-container.sh latest 2
 ```
+
+##### Windows
+Run start-container.bat
 
 #### Initialize Hbase database and run Hbase shell
 
@@ -57,6 +63,8 @@ $ ./docker-entrypoint.sh
 ```
 
 #### Control Cluster From Web UI
+
+> Web UI access isn't currently working in Windows 10 (Works fine in Linux). If you can fix, feel free to send a pull request :)
 
 ###### Access From Parent Computer of Docker Container
 Check IP address in master container
