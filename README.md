@@ -4,6 +4,7 @@ Quickly build arbitrary size Hadoop cluster with Docker. Includes Hadoop and HBa
 This project is based on the work of [krejcmat](https://github.com/krejcmat/hadoop-hbase-docker/).
 
 ###### Version of products
+
 | system          | version    |
 | ----------------|:----------:|
 | HBase           | 1.2.5      |
@@ -14,20 +15,24 @@ As handler of HBase native Zookeeper is used. For large clusters, it is highly r
 ### Usage (Easymode)
 
 #### Clone Git Repository
+
 ```
 $ git clone https://github.com/iambenzo/hadbase.git
 $ cd hadbase
 ```
 
 ###### Build From Source
+
 ```
 $ ./build-image.sh hadbase-base
 ```
 
 ####### Windows
+
 Run build-image.bat
 
 ###### Check images
+
 ```
 $ docker images
 
@@ -38,16 +43,19 @@ iambenzo/hadbase-base                 latest              00fd6c19004f        58
 ```
 
 #### Initialize Hadoop (Master and Slaves)
+
 ```
 $ ./start-container.sh latest 2
 ```
 
 ##### Windows
+
 Run start-container.bat
 
 #### Initialize Hbase database and run Hbase shell
 
 ###### Start Everything
+
 ```
 $ cd ~
 $ ./docker-entrypoint.sh
@@ -56,6 +64,7 @@ $ ./docker-entrypoint.sh
 ```
 
 ###### Check status
+
 ```
 (hbase(main):001:0>)$ status
 
@@ -64,9 +73,10 @@ $ ./docker-entrypoint.sh
 
 #### Control Cluster From Web UI
 
-> Web UI access isn't currently working in Windows 10 (Works fine in Linux). If you can fix, feel free to send a pull request :)
+> Web UI access isn't currently working in Windows 10, so you'll have to stick to using the hbase shell (Works fine in Linux). If you can fix, feel free to send a pull request :)
 
 ###### Access From Parent Computer of Docker Container
+
 Check IP address in master container
 ```
 $ ip a
@@ -101,8 +111,14 @@ Use your hosts file on the host machine to map the above IP addresses to the rel
 172.17.0.4       slave2.hadbase.dkr
 ```
 
+###### WebUI Links
+
+Hadoop: [http://master.hadbase.dkr:50070](http://master.hadbase.dkr:50070)
+
+HBase: [http://master.hadbase.dkr:60010](http://master.hadbase.dkr:60010)
 
 ###### HBase usage
+
 [python wrapper for HBase rest API](http://blog.cloudera.com/blog/2013/10/hello-starbase-a-python-wrapper-for-the-hbase-rest-api/)
 
 [usage of Java API for Hbase](https://autofei.wordpress.com/2012/04/02/java-example-code-using-hbase-data-model-operations/)
